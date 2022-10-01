@@ -179,7 +179,6 @@ export type Shadows = {
   hover: string
   pressed: string
   blurred: string
-  infoShadow: (firstColor: string) => string
   containedFocus: (firstColor: string, secondColor: string) => string
   outlinedFocus: (
     firstColor: string,

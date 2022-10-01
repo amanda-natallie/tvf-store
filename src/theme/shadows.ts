@@ -13,7 +13,7 @@ export const shadows: Shadows = {
   )}`,
   pressed: `0px 4px 10px -8px  ${defaultRGBA(0.2)}`,
   blurred: `0 0 19px 13px  ${palette.grayScale[50]}`,
-  infoShadow: (firstColor: string) => `0px 9px 50px -14px ${firstColor}`,
+
   outlinedFocus: (
     firstColor: string,
     secondColor: string,

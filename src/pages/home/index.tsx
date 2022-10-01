@@ -1,22 +1,43 @@
-import React from 'react'
+import { Col, Container, Header, IntroSection, Loader, Row, Typography } from 'components'
+import { useEffect } from 'react'
 import { useGetProductsQuery } from 'store/api'
+import { StyledMainWrapper } from './styles'
 
 const Home = () => {
-  const { data: products, isLoading, isError, error } = useGetProductsQuery()
+  const { data, isLoading, isError, error } = useGetProductsQuery()
+  const products = data?.products
 
-  React.useEffect(() => {
-    console.log({ ...products })
-    isLoading && console.log('loading')
+  useEffect(() => {
     isError && console.log({ error })
-  }, [products, isLoading, isError, error])
+  }, [isError, error])
 
   return (
-    <div>
-      {isLoading && <p>Loading...</p>}
-      {!isLoading &&
-        products &&
-        products.products.map(product => <p key={product.id}>{product.title}</p>)}
-    </div>
+    <StyledMainWrapper>
+      {isLoading ? (
+        <Loader fullScreen />
+      ) : (
+        <>
+          <Header />
+          <IntroSection />
+          <Container>
+            <Row>
+              {products?.map(product => (
+                <Col xs={12} lg={3} key={product.id}>
+                  {product.title}
+                </Col>
+              ))}
+            </Row>
+            <Row>
+              <Col xs={12} lg={3}>
+                <Typography variant="heading" size="h1">
+                  oi <Loader size="20px" as="span" />
+                </Typography>
+              </Col>
+            </Row>
+          </Container>
+        </>
+      )}
+    </StyledMainWrapper>
   )
 }
 

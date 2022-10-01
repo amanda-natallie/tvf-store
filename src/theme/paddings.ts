@@ -10,7 +10,7 @@ const paddings: Paddings = {
   cardMD: pxToRem(32),
   dialog: pxToRem(16),
   button: `${pxToRem(18)} ${pxToRem(32)}`,
-  pillButton: pxToRem(20),
+  pillButton: pxToRem(10),
   input: pxToRem(48),
   icon: pxToRem(26.5),
   cardTitle: `${pxToRem(20)} ${pxToRem(40)}`,
