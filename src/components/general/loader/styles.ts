@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components'
-import { LoaderProps } from './'
-import { Flexbox } from '../flexbox'
 import { palette } from 'theme'
 import { hexToRgba } from 'utils'
+import { Flexbox, FlexboxProps } from '../flexbox'
 
-export const StyledLoaderWrapper = styled(Flexbox)<LoaderProps>`
+export const StyledLoaderWrapper = styled(Flexbox)<FlexboxProps>`
   ${({ fullScreen }) => css`
     position: ${fullScreen ? 'fixed' : 'relative'};
     z-index: ${fullScreen ? 9999 : 'auto'};

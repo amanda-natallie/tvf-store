@@ -1,15 +1,15 @@
 import React from 'react'
 import { palette } from 'theme'
+import { FlexboxProps } from '../flexbox'
 import { StyledLoaderWrapper } from './styles'
 
-export interface LoaderProps {
-  fullScreen?: boolean
-  size?: number
+export interface LoaderProps extends FlexboxProps {
+  size?: string
 }
 
-export const Loader: React.FC<LoaderProps> = ({ fullScreen, size = 70 }) => {
+export const Loader: React.FC<LoaderProps> = ({ fullScreen, size = 70, ...rest }) => {
   return (
-    <StyledLoaderWrapper {...{ fullScreen }} justifyContent="center" noPadding>
+    <StyledLoaderWrapper {...rest} {...{ fullScreen }} justifyContent="center" noPadding>
       <svg
         version="1.1"
         id="L9"
