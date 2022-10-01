@@ -200,19 +200,10 @@ export type Breakpoint = Breakpoints & {
   xl: number
 }
 
-export type GridDefaults = {
+export type Grid = {
   breakpoints: Breakpoint
   paddings: Breakpoints
   margins: Breakpoints
-}
-
-export type Grid = {
-  breakpoints: Breakpoint
-  paddingsGeneral: Breakpoints
-  paddingsSimulator: Breakpoints
-  defaultGrid: GridDefaults
-  simulatorGrid: GridDefaults
-  marginsGeneral: Breakpoints
 }
 
 // MIXINS
@@ -232,7 +223,6 @@ export type DefaultTheme = {
   paddings: Paddings
   shadows: Shadows
   gridSystem: Grid
-  gridDefaults: Grid['defaultGrid']
   flexPosition: Mixins['flexPosition']
   spacing: Mixins['spacing']
 }

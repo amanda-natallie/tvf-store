@@ -3,7 +3,7 @@ import fonts from './fonts'
 import paddings from './paddings'
 import shadows from './shadows'
 import borders from './borders'
-import gridSystem from './grid'
+import { grid } from './grid'
 import { flexPosition, spacing } from './mixins'
 import type { DefaultTheme } from './types'
 
@@ -23,22 +23,15 @@ export * from './paddings'
 export * from './shadows'
 export * from './grid'
 
-const generalGrid = gridSystem.defaultGrid
-const simulatorGrid = gridSystem.simulatorGrid
 const theme: DefaultTheme = {
   borders,
   colors,
   fonts,
   paddings,
   shadows,
-  gridSystem,
+  gridSystem: grid,
   flexPosition,
   spacing,
-  gridDefaults: generalGrid,
 }
 
 export const defaultTheme: DefaultTheme = theme
-export const simulatorTheme: DefaultTheme = {
-  ...theme,
-  gridDefaults: simulatorGrid,
-}

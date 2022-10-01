@@ -8,44 +8,24 @@ export const breakpoints: Breakpoint = {
   xl: 1536,
 }
 
-export const paddingsSimulator: Breakpoints = {
+export const paddings: Breakpoints = {
   xs: 16,
   sm: 20,
   md: 20,
   lg: 20,
 }
 
-export const paddingsGeneral: Breakpoints = {
-  ...paddingsSimulator,
-  lg: 40,
-}
-
-export const marginsGeneral: Breakpoints = {
+export const margins: Breakpoints = {
   xs: 20,
   sm: 40,
   md: 80,
   lg: 80,
 }
 
-export const defaultGrid: Grid['defaultGrid'] = {
-  breakpoints: breakpoints,
-  paddings: paddingsGeneral,
-  margins: marginsGeneral,
-}
-
-export const simulatorGrid: Grid['defaultGrid'] = {
-  breakpoints: breakpoints,
-  paddings: paddingsSimulator,
-  margins: marginsGeneral,
-}
-
-const grid: Grid = {
-  defaultGrid,
-  simulatorGrid,
+export const grid: Grid = {
   breakpoints,
-  paddingsGeneral,
-  paddingsSimulator,
-  marginsGeneral,
+  paddings,
+  margins,
 }
 
 export default grid
