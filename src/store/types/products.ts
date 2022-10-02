@@ -64,7 +64,4 @@ export interface IGetProductsResponse {
   products: IProduct[]
 }
 
-export interface IProductsState extends IGetProductsResponse {
-  loading: boolean
-  error: string
-}
+export type IProductsState = IGetProductsResponse
