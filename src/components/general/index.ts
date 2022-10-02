@@ -1,4 +1,6 @@
 export * from './flexbox'
 export * from './grid-system'
-export * from './typography'
+export { default as Input } from './input'
 export { default as Loader } from './loader'
+export { default as Select } from './select'
+export * from './typography'
