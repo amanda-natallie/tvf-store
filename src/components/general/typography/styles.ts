@@ -11,7 +11,7 @@ export const StyledMasterTypography = styled.p<TypographyProps>`
     customStyles = {},
   }: Partial<TypographyProps>): FlattenSimpleInterpolation => {
     return css`
-      font-family: 'Inter', sans-serif;
+      font-family: 'Lexend Deca', sans-serif;
       transition: all 0.2s ease-in-out;
       color: ${colorScheme.type === 'text'
         ? palette.text[colorScheme.color as keyof typeof palette.text]

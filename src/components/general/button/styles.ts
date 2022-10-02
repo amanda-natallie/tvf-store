@@ -23,7 +23,7 @@ export const StyledMasterButton = styled.button<ButtonProps>`
       text-transform: uppercase;
       font-weight: ${fonts.button.normal.fontWeight};
       font-size: ${fonts.button.normal.fontSize};
-      font-family: 'Inter', sans-serif;
+      font-family: 'Lexend Deca', sans-serif;
       display: flex;
       flex-direction: row;
       justify-content: center;

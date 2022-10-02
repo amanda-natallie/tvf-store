@@ -21,7 +21,7 @@ export default createGlobalStyle`
     overflow-y: auto;
     color: ${palette.text.primary};
     background: ${palette.grayScale[200]};
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lexend Deca', sans-serif;
     font-size: 16px;
   }
   a:disabled, button:disabled {

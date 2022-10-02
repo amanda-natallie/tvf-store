@@ -154,7 +154,6 @@ export type Fonts = {
   heading: FontsProps['heading']
   body: FontsProps['body']
   button: FontsProps['button']
-  defaultFontFamily: string
 }
 
 // PADDINGS
