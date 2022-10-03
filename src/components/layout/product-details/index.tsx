@@ -1,6 +1,7 @@
 import { Dialog, Flexbox, Input, Typography } from 'components/general'
 import { Button } from 'components/general/button'
 import { StyledActions } from 'components/general/dialog/styles'
+import { useMediaQuery } from 'hooks'
 import { FC } from 'react'
 import { toast } from 'react-toastify'
 import { RootState, useAppDispatch, useAppSelector } from 'store'
@@ -30,6 +31,7 @@ const ProductDetails: FC<IProductDetailsProps> = ({
   } = useAppSelector((state: RootState) => state)
 
   const dispatch = useAppDispatch()
+  const isMobile = useMediaQuery(768)
 
   const handleAddToCart = (product: IProduct) => {
     const variant = getVariantDetails() as IProductVariant
@@ -70,7 +72,6 @@ const ProductDetails: FC<IProductDetailsProps> = ({
       dispatch(setCartProducts({ products: [...existingProducts, cartInfo] }))
     }
 
-    console.log('cartInfo', cartInfo)
     toast.success(`The ${product.title} has been added to your cart.`, {
       position: 'bottom-right',
     })
@@ -81,16 +82,16 @@ const ProductDetails: FC<IProductDetailsProps> = ({
   }
 
   return (
-    <Dialog alignItems="flex-start" width="45vw">
+    <Dialog alignItems="flex-start" width={!isMobile ? '45vw' : '100%'} noWrap={isMobile}>
       <Flexbox noPadding gap={pxToRem(32)} fullWidth>
         {currentProduct?.options.map((option, index) => (
           <Flexbox
             fullWidth
             noPadding
             key={index}
-            alignItems="center"
+            alignItems={!isMobile ? 'center' : 'flex-start'}
             justifyContent="flex-start"
-            flexDirection="row"
+            flexDirection={!isMobile ? 'row' : 'column'}
             gap={pxToRem(8)}
           >
             <Typography variant="heading" size="h4">

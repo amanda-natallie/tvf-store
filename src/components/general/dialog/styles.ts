@@ -33,6 +33,11 @@ export const StyledDialogBox = styled(Flexbox)<DialogProps>`
   background-color: ${palette.grayScale[50]};
   border-radius: ${borders.radius.card};
   padding: ${paddings.dialog};
+  @media (max-width: 768px) {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+  }
   ${({ customStyles }): CSSObject | FlattenSimpleInterpolation => customStyles || {}}
 `
 
