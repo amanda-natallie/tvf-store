@@ -32,6 +32,8 @@ This is a simple Progressive Web Application with React & Typescript demonstrati
 - 📐 ESLint for JavaScript linting
 - 📦 YARN for build and serve scripts
 - ✨ Prettier for automatic code formatting
+- 🎯 Commitlint & Husky to ensure commit message patterns
+
 
 ## Running the app
 
