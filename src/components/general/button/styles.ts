@@ -9,6 +9,7 @@ import {
 } from 'theme'
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 import { ButtonProps } from './button'
+import { flexPosition } from 'utils'
 
 export const StyledMasterButton = styled.button<ButtonProps>`
   ${({
@@ -19,20 +20,20 @@ export const StyledMasterButton = styled.button<ButtonProps>`
   }: Partial<ButtonProps>): FlattenSimpleInterpolation => {
     const notTextButton = variant !== 'text'
     return css`
+      ${flexPosition('center', 'center')}
       position: relative;
       text-transform: uppercase;
       font-weight: ${fonts.button.normal.fontWeight};
       font-size: ${fonts.button.normal.fontSize};
       font-family: 'Lexend Deca', sans-serif;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+
       grid-gap: ${paddings.icon};
-      align-items: center;
+
       transition: all 0.2s ease-in-out;
-      width: ${fullWidth ? '100%' : 'auto'};
+      width: ${iconButton ? '40px' : fullWidth ? '100%' : 'auto'};
+      height: ${iconButton ? '40px' : 'unset'};
       border-radius: ${iconButton ? '100%' : !notTextButton ? 0 : borders.radius.button};
-      padding: ${iconButton ? paddings.pillButton : notTextButton ? paddings.button : 0};
+      padding: ${iconButton ? 0 : notTextButton ? paddings.button : 0};
       &:active,
       ${{ ...customStyles }} @media print {
         display: none;

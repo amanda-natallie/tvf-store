@@ -1,6 +1,8 @@
+export * from './dialog'
 export * from './flexbox'
 export * from './grid-system'
 export { default as Input } from './input'
 export { default as Loader } from './loader'
+export * from './paper'
 export { default as Select } from './select'
 export * from './typography'

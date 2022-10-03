@@ -6,11 +6,11 @@ export interface InputProps {
   type?: string
   name?: string
   label?: string
-  value?: string
+  value: string | number
   placeholder?: string
   disabled?: boolean
   readonly?: boolean
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
   onClick?: (e: MouseEvent<HTMLInputElement>) => void
   customStyles?: any
   inputError?: boolean
@@ -54,7 +54,7 @@ export const Input: FC<InputProps> = ({
   }
 
   return (
-    <StyledContainer ref={forwardRef}>
+    <StyledContainer ref={forwardRef} {...{ type }}>
       {label ? (
         <Typography
           as="label"
@@ -62,26 +62,30 @@ export const Input: FC<InputProps> = ({
           size="small"
           colorScheme={{
             type: 'text',
-            color: 'tertiary',
+            color: 'label',
           }}
         >
           {label}
         </Typography>
       ) : null}
       <StyledInput
-        id={id}
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        maxLength={maxLength}
-        disabled={disabled}
+        {...{
+          id,
+          name,
+          type,
+          value,
+          onChange,
+          placeholder,
+          maxLength,
+          disabled,
+          customStyles,
+          checked,
+          onClick,
+        }}
         messageError={!!messageError || inputError}
-        customStyles={customStyles}
-        onClick={onClick}
         readOnly={readonly}
         autoComplete="off"
+        checked={checked}
         {...customInputProps}
       />
 
