@@ -12,6 +12,10 @@ export const StyledCartCol = styled(Col)`
   & > div {
     border-top: 6px solid ${palette.primary.light};
   }
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 `
 export const StyledCartBadge = styled.span`
   ${flexPosition('center', 'center')}

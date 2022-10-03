@@ -1,5 +1,6 @@
 import { Col, Container, Flexbox, Paper, Row, Typography } from 'components/general'
 import { Button } from 'components/general/button'
+import { useMediaQuery } from 'hooks'
 import { RootState, useAppDispatch, useAppSelector } from 'store'
 import { setCartProducts } from 'store/slices'
 import { ICartProduct } from 'store/types'
@@ -10,6 +11,7 @@ import { StyledCartBadge, StyledCartCol } from './styles'
 const CartDetails = () => {
   const { products } = useAppSelector((state: RootState) => state.cartState)
   const dispatch = useAppDispatch()
+  const isMobile = useMediaQuery(768)
 
   const handleRemoveCartItem = (product: ICartProduct) => {
     const updatedCartProducts = products?.filter(
@@ -47,7 +49,13 @@ const CartDetails = () => {
               customStyles={{ borderBottom: `1px solid ${palette.grayScale[400]}` }}
             >
               <Container fluid>
-                <Row>
+                <Row
+                  customStyles={{
+                    padding: isMobile
+                      ? `${pxToRem(8)} !important`
+                      : `0 ${pxToRem(46)} 0 0 !important`,
+                  }}
+                >
                   <Col
                     xs={6}
                     sm={6}
@@ -78,7 +86,6 @@ const CartDetails = () => {
                     lg={4}
                     alignItems="flex-end"
                     gap={pxToRem(12)}
-                    customStyles={{ padding: `0 ${pxToRem(46)} 0 0 !important` }}
                   >
                     <Typography variant="heading" size="h3">
                       <>{product.price}€</>

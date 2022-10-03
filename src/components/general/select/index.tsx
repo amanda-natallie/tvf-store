@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 
 import * as Icons from 'components/icons'
-import { useClickOutside } from 'hooks'
+import { useClickOutside, useMediaQuery } from 'hooks'
 import { palette } from 'theme'
 
 import Input from '../input'
@@ -22,7 +22,7 @@ export const Select: React.FC<SelectProps> = ({
   popupCustomStyles,
 }) => {
   const [isActive, setIsActive] = useState(false)
-
+  const isMobile = useMediaQuery(768)
   const toggleActive = useCallback(() => {
     if (!disabled) {
       setIsActive(!isActive)
@@ -35,7 +35,7 @@ export const Select: React.FC<SelectProps> = ({
   })
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', width: isMobile ? '100%' : 'auto' }}>
       <Input
         inputError={inputError}
         messageError={messageError}

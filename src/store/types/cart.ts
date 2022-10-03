@@ -1,5 +1,3 @@
-import { IProductVariant } from './products'
-
 export type ICartProduct = {
   id: number
   idVariant: number
