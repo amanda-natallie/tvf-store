@@ -3,8 +3,7 @@ import { CookiesProvider } from 'react-cookie'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistor, store } from 'store'
+import { store } from 'store'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
@@ -12,13 +11,11 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 ReactDOM.render(
   <StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Router>
-          <CookiesProvider>
-            <App />
-          </CookiesProvider>
-        </Router>
-      </PersistGate>
+      <Router>
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
+      </Router>
     </Provider>
   </StrictMode>,
   document.getElementById('root'),

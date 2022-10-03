@@ -2,8 +2,10 @@ import { Col, Container, Flexbox, Row, Typography } from 'components/general'
 import { StyledHeaderWrapper, StyledBrand } from './styles'
 import BrandLogo from 'assets/images/brand.png'
 import { Button } from 'components/general/button'
+import { RootState, useAppSelector } from 'store'
 
 const Header = () => {
+  const { products } = useAppSelector((state: RootState) => state.cartState)
   return (
     <StyledHeaderWrapper>
       <Container>
@@ -20,9 +22,10 @@ const Header = () => {
               gap="20px"
             >
               <Typography variant="body" size="normal" as="span">
-                € 0,00
+                €
+                {products ? products.reduce((acc, product) => acc + product.price, 0) : 0}
               </Typography>
-              <Button iconButton>02</Button>
+              <Button iconButton>{products?.length ?? 0}</Button>
             </Flexbox>
           </Col>
         </Row>
