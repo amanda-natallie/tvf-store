@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IGetProductsResponse, IProductsState } from 'store/types'
+import { IGetProductsResponse, IProduct, IProductsState } from 'store/types'
 
 const initialState: IProductsState = {
   products: [],
+  currentProduct: undefined,
 }
 
 export const productsSlice = createSlice({
@@ -12,9 +13,12 @@ export const productsSlice = createSlice({
     setProducts: (state, action: PayloadAction<IGetProductsResponse>) => {
       state.products = action.payload.products
     },
+    setCurrentProduct: (state, action: PayloadAction<IProduct>) => {
+      state.currentProduct = action.payload
+    },
   },
 })
 
 export default productsSlice.reducer
 
-export const { setProducts } = productsSlice.actions
+export const { setProducts, setCurrentProduct } = productsSlice.actions

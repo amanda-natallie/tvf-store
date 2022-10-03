@@ -1,2 +1,6 @@
 export * from './productsSlice'
+export * from './dialogSlice'
+export * from './cartSlice'
 export { default as productsReducer } from './productsSlice'
+export { default as dialogReducer } from './dialogSlice'
+export { default as cartReducer } from './cartSlice'

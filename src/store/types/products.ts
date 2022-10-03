@@ -64,4 +64,6 @@ export interface IGetProductsResponse {
   products: IProduct[]
 }
 
-export type IProductsState = IGetProductsResponse
+export type IProductsState = IGetProductsResponse & {
+  currentProduct?: IProduct
+}
